@@ -24,11 +24,11 @@ Remove-Item Env:PUBLIC_SITE_ENV
 ## Routes and editing
 
 - `/`: service menu and selection guide.
-- `/creator-style-social-content/`, `/signature-product-campaign/`, `/local-awareness-ads/`: static service pages.
+- `/creator-style-social-content/`, `/signature-product-campaign/`, `/local-awareness-ads/`: static service pages with horizontally scrollable TikTok and Instagram video references.
 - `/privacy/`: actual data collection / external destinations.
 - `/robots.txt`, `/sitemap.xml`: generated at build time.
 
-All service names, prices (integer IDR), media/fee split, structured output counts, AI quotas, and seven-row comparisons are in `src/data/services.ts`. Shared contact settings, canonical base, FAQ, workflow, and terms are in `src/data/site.ts`. Shared styling: `src/styles/global.css`. Homepage editorial copy: `src/pages/index.astro`. Shared service layout: `src/pages/[service].astro`.
+All service names, prices (integer IDR), media/fee split, structured output counts, AI quotas, and seven-row comparisons are in `src/data/services.ts`. Shared contact settings, canonical base, FAQ, workflow, and terms are in `src/data/site.ts`. Shared styling: `src/styles/global.css`. Homepage editorial copy: `src/pages/index.astro`. Shared service layout: `src/pages/[service].astro`. Official TikTok creator profile and selected Instagram post embeds live in `src/components/VideoExamples.astro`; both load media from their original platforms and have external-link fallbacks. The examples are labeled as cross-industry references, not F&B client work.
 
 WhatsApp uses the configured phone with encoded editable tier-specific text. It never sends automatically. Email fallback is available in footer and final CTA. No analytics IDs have been invented. If analytics are later installed, update privacy to match actual collection.
 

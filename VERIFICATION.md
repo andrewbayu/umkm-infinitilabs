@@ -2,6 +2,8 @@
 
 Brand/package revision: supplied logo integrated unchanged, white/yellow/black palette applied, package positioning and parent-site link added throughout. Build/typecheck and all 25 responsive checks plus axe scans passed again after this revision. Performance figures below were measured before this visual revision and have not been remeasured.
 
+Video-reference revision: each service page now includes an official TikTok creator-profile embed and the selected Instagram embed in a horizontal gallery. Privacy copy reflects third-party embeds. Source accounts are disclosed as cross-industry references. Build and responsive checks not yet rerun for this revision.
+
 - Astro static build and typecheck: passed without errors, warnings, or hints.
 - Five HTML pages emitted. Direct loads and refreshes tested for every route.
 - 25 route/viewport combinations: 360, 390, 768, 1280, 1440px; no horizontal overflow.
