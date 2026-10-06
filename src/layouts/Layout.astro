@@ -1,9 +1,5 @@
 ---
-import '@fontsource-variable/fraunces';
-import '@fontsource-variable/fraunces/wght-italic.css';
 import '@fontsource-variable/inter';
-import frauncesFont from '@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url';
-import frauncesItalic from '@fontsource-variable/fraunces/files/fraunces-latin-wght-italic.woff2?url';
 import interFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 import { site, whatsapp } from '../data/site';
@@ -18,8 +14,6 @@ const schema = serviceName ? { '@context':'https://schema.org', '@type':'Service
 <html lang="id">
  <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preload" href={frauncesFont} as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href={frauncesItalic} as="font" type="font/woff2" crossorigin />
   <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
   <title>{title}</title><meta name="description" content={description} /><link rel="canonical" href={canonical} />
   <meta name="robots" content={production ? 'index, follow' : 'noindex, nofollow'} />

@@ -64,3 +64,7 @@ Originals: `assets/generated/`. Optimized AVIF/WebP: `public/images/`. Regenerat
 ## Customer-facing language
 
 Service names now read Konten Media Sosial, Promosi Menu & Paket, and Iklan Instagram & Facebook; existing route slugs remain unchanged. Copy uses direct everyday Indonesian. CTA buttons explicitly start WhatsApp conversations. See `COPY-DECISIONS.md` for audience, offer, and CTA choices. Revised poster text was edited with built-in imagegen; source files remain in `assets/generated/`, with edit prompts in `DIRECT-COPY-PROMPTS.md`.
+
+## Package comparison UI
+
+`PackageOverview.astro` offers three accessible service tabs on the homepage. `TierCard.astro` is shared by homepage and service pricing: monthly cost, minimum 3-month contract, calculated contract value, deliverable counts, and SoW. All numbers derive from existing `services.ts` data. Detailed seven-row comparison and exclusions remain on each service page. No yearly billing toggle or sales popularity claims are introduced.

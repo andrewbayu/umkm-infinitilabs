@@ -1,0 +1,21 @@
+---
+import { services } from '../data/services';
+import TierCard from './TierCard.astro';
+---
+<div class="package-picker">
+ <div class="package-tabs" role="tablist" aria-label="Pilih jenis layanan">{services.map((s,i) => <button type="button" role="tab" id={`tab-${s.slug}`} aria-selected={i === 0 ? 'true' : 'false'} aria-controls={`panel-${s.slug}`} tabindex={i === 0 ? 0 : -1}>{s.name}</button>)}</div>
+ {services.map((s,i) => <section class="package-panel" role="tabpanel" id={`panel-${s.slug}`} aria-labelledby={`tab-${s.slug}`} hidden={i !== 0}><div class="package-panel-heading"><div><p class="eyebrow">{s.category}</p><h3>{s.name}</h3><p>{s.benefit}</p></div><a class="text-link" href={`/${s.slug}/`}>Lihat layanan lengkap ↗</a></div><div class="pricing-cards">{s.tiers.map((tier,index) => <TierCard service={s} tier={tier} index={index} compact />)}</div></section>)}
+ <p class="package-responsibility">Semua paket: minimal 3 bulan · 1 brand, 1 lokasi · Tim Anda merekam foto/video, kami kerjakan secara online.</p>
+</div>
+<script>
+ document.querySelectorAll<HTMLElement>('.package-picker').forEach(picker => {
+  const tabs = [...picker.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+  const select = (tab: HTMLButtonElement) => {
+   tabs.forEach(button => { const active = button === tab; button.setAttribute('aria-selected',String(active)); button.tabIndex = active ? 0 : -1; const panel = document.getElementById(button.getAttribute('aria-controls')!); if (panel) panel.hidden = !active; });
+  };
+  tabs.forEach((tab,index) => {
+   tab.addEventListener('click',()=>select(tab));
+   tab.addEventListener('keydown',event=>{let next=index;if(event.key==='ArrowRight') next=(index+1)%tabs.length;else if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabs.length-1;else return;event.preventDefault();select(tabs[next]);tabs[next].focus();});
+  });
+ });
+</script>

@@ -1,0 +1,25 @@
+---
+import type { Service, Tier } from '../data/services';
+import { shortMoney, whatsapp } from '../data/site';
+interface Props { service: Service; tier: Tier; index: number; compact?: boolean }
+const { service: s, tier: t, index, compact = false } = Astro.props;
+const scopeRows = t.media ? [1,3,4,5,6] : [0,1,2,5,6];
+const fit = s.slug === 'creator-style-social-content'
+ ? ['Untuk mulai posting secara rutin.', 'Untuk lebih banyak konten dan dua seri rutin.']
+ : s.slug === 'signature-product-campaign'
+ ? ['Untuk promosi penawaran yang sudah tersedia.', 'Untuk menyusun paket dan promosi yang lebih lengkap.']
+ : ['Untuk fokus pada satu wilayah utama.', 'Untuk menguji hingga dua wilayah.'];
+---
+<article class:list={['price-card', {expanded:index === 1, 'compact-plan':compact}]}>
+ <div class="plan-top"><span class="plan-level">{index === 0 ? 'Paket dasar' : 'Paket lebih lengkap'}</span><span class="contract-badge">Kontrak min. 3 bulan</span></div>
+ <h3>{t.name}</h3><p class="plan-fit">{fit[index]}</p>
+ <p class="price">{shortMoney(t.price)}<span>/bulan</span></p>
+ <p class="price-breakdown">{t.media ? `${shortMoney(t.media)} iklan + ${shortMoney(t.fee)} pengelolaan` : 'Pembuatan & penjadwalan konten. Iklan terpisah.'}</p>
+ <p class="contract-total">Nilai kontrak 3 bulan: <strong>{shortMoney(t.price * 3)}</strong><br />Dibayar per bulan. Harga belum termasuk pajak.</p>
+ <a class:list={['button', {'outline-button':index === 0}]} href={whatsapp(s.name,t)} target="_blank" rel="noopener noreferrer">Tanya Paket {t.name}<span aria-hidden="true">↗</span></a>
+ <div class="plan-delivery"><h4>Output per bulan</h4><div class="output-counts"><div><strong>{t.counts.videos}</strong><span>{t.media ? 'Video iklan' : 'Video pendek'}</span></div><div><strong>{t.counts.statics}</strong><span>{t.media ? 'Gambar iklan' : 'Foto / carousel'}</span></div>{t.counts.stories > 0 && <div><strong>{t.counts.stories}</strong><span>Tampilan Story</span></div>}</div>
+ <p class="output-limit">Video maks. {t.media ? '30' : '45'} detik{!t.media && ' · Carousel maks. 5 slide'}.{t.counts.extraStories && ` + ${t.counts.extraStories} Story untuk jajak pendapat.`}</p>
+ <p class="ai-quota">Maks. {t.aiMax} konten dibantu AI, sudah masuk jumlah di atas.</p></div>
+ <div class="plan-scope"><h4>Pekerjaan yang kami tangani <span>(SoW)</span></h4><ul>{scopeRows.slice(0,compact ? 3 : scopeRows.length).map(i => <li><span aria-hidden="true">✓</span><div><strong>{s.rows[i]}</strong><p>{t.features[i]}</p></div></li>)}</ul></div>
+ {compact && <a class="plan-detail" href={`/${s.slug}/#paket`}>Lihat seluruh pekerjaan & perbandingan <span aria-hidden="true">→</span></a>}
+</article>

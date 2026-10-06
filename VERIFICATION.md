@@ -22,3 +22,7 @@ Remaining external dependency: choose hosting, create a new project, add the exa
 ## Direct Indonesian copy — 7 October 2026
 
 Rewrote homepage, service names and descriptions, pricing features, captions, WhatsApp messages, navigation, FAQ, terms, simulation explanations, privacy, metadata, and text inside all three generated campaign posters. Prices, media/fee amounts, service slugs, tier names, monthly counts, AI limits, and seven-row comparisons were compared programmatically against the prior commit and remain unchanged. Build/typecheck passed with zero diagnostics; 25 route/viewport checks, WCAG desktop/mobile scans, keyboard interactions, internal links, and WhatsApp checks passed. Final optimized poster assets and homepage layout were also checked after rebuilding.
+
+## SaaS package UI — 7 October 2026
+
+Rebuilt the UI with Inter headings, white surfaces, yellow accents, rounded cards, and a homepage service selector. Shared TierCard renders two monthly plans per service, output counts, SoW, three-month minimum and calculated contract value with monthly payment disclosure. Service pricing now follows the hero navigation. Existing imagery, main copy, prices and deliverables are unchanged. Keyboard tab selection, contract disclosure, two tiers, Output and SoW were verified in addition to 25 responsive route checks and WCAG scans. Screenshots inspected on desktop and mobile. Performance was not remeasured.
