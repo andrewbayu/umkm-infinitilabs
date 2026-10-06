@@ -1,0 +1,53 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/fraunces/wght-italic.css';
+import '@fontsource-variable/inter';
+import frauncesFont from '@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url';
+import frauncesItalic from '@fontsource-variable/fraunces/files/fraunces-latin-wght-italic.woff2?url';
+import interFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import '../styles/global.css';
+import { site, whatsapp } from '../data/site';
+import { services } from '../data/services';
+interface Props { title?: string; description?: string; serviceName?: string }
+const { title = site.title, description = site.description, serviceName } = Astro.props;
+const production = import.meta.env.PUBLIC_SITE_ENV === 'production';
+const canonical = new URL(Astro.url.pathname, site.base).href;
+const schema = serviceName ? { '@context':'https://schema.org', '@type':'Service', name:serviceName, provider:{ '@type':'Organization', name:site.name, url:'https://www.weareinfiniti.id' }, areaServed:'ID', url:canonical } : { '@context':'https://schema.org', '@type':'Organization', name:site.name, url:site.base, email:site.email };
+---
+<!doctype html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preload" href={frauncesFont} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={frauncesItalic} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
+  <title>{title}</title><meta name="description" content={description} /><link rel="canonical" href={canonical} />
+  <meta name="robots" content={production ? 'index, follow' : 'noindex, nofollow'} />
+  <meta property="og:type" content="website" /><meta property="og:locale" content="id_ID" /><meta property="og:site_name" content={site.name} />
+  <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} />
+  <meta property="og:image" content={`${site.base}/social-preview.png`} /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" type="image/png" href="/images/infinitilabs-logo-original.png" />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+ </head>
+ <body>
+  <a class="skip-link" href="#main">Langsung ke konten</a>
+  <header class="site-header wrap">
+   <a href="/" class="wordmark" aria-label="InfinitiLabs, halaman paket"><img src="/images/infinitilabs-logo-original.png" width="620" height="96" alt="InfinitiLabs" /></a>
+   <nav class="desktop-nav" aria-label="Navigasi utama"><a href="/#strategi">Paket</a><a href="/#cara-kerja">Cara Kerja</a><a href="/#faq">FAQ</a></nav>
+   <a class="button header-cta" href={whatsapp()} target="_blank" rel="noopener noreferrer">Konsultasikan Bisnis Anda <span aria-hidden="true">↗</span></a>
+   <details class="mobile-menu"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Navigasi ponsel"><a href="/#strategi">Paket</a><a href="/#cara-kerja">Cara Kerja</a><a href="/#faq">FAQ</a><a href={whatsapp()} target="_blank" rel="noopener noreferrer">Konsultasi via WhatsApp ↗</a></nav></details>
+  </header>
+  <aside class="package-context wrap" aria-label="Tentang halaman paket"><span>Paket khusus F&B & hospitality</span><a href="https://weareinfiniti.id/" target="_blank" rel="noopener noreferrer">Bagian dari InfinitiLabs <span aria-hidden="true">↗</span></a></aside>
+  <main id="main"><slot /></main>
+  <footer class="footer wrap">
+   <div class="footer-top"><div><a class="wordmark" href="/" aria-label="InfinitiLabs, halaman paket"><img src="/images/infinitilabs-logo-original.png" width="620" height="96" alt="InfinitiLabs" /></a><p>Paket khusus untuk café, restoran, bakery,<br />hotel, guesthouse, dan villa.</p></div><div class="footer-links"><span class="eyebrow">Paket F&B & hospitality</span>{services.map(s=><a href={`/${s.slug}/`}>{s.name}</a>)}</div><div class="footer-links"><span class="eyebrow">Mari terhubung</span><a href={`mailto:${site.email}`}>{site.email}</a><a href="https://weareinfiniti.id/" target="_blank" rel="noopener noreferrer">Tentang InfinitiLabs ↗</a><a href="/privacy/">Privasi</a></div></div>
+   <div class="footer-bottom"><span>© {new Date().getFullYear()} InfinitiLabs.</span><span>Bagian dari InfinitiLabs · weareinfiniti.id</span></div>
+  </footer>
+  <a class="mobile-cta button" href={whatsapp()} target="_blank" rel="noopener noreferrer">Konsultasikan Bisnis Anda <span aria-hidden="true">↗</span></a>
+  <script>
+   document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', () => document.querySelector('.mobile-menu')?.removeAttribute('open')));
+   document.addEventListener('keydown', event => { if (event.key === 'Escape') { const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu'); if (menu?.open) { menu.open = false; menu.querySelector('summary')?.focus(); } } });
+  </script>
+ </body>
+</html>

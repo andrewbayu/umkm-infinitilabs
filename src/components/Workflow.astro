@@ -1,0 +1,4 @@
+---
+import { workflow } from '../data/site';
+---
+<section class="section workflow" id="cara-kerja"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Jarak bukan penghalang</p><h2>Anda di lokasi.<br /><em>Kami di balik layar.</em></h2></div><p>Lokasi bisnis Anda boleh jauh. Pengarahan dan pengelolaan tetap berjalan bersama satu PIC dari tim Anda.</p></div><ol class="steps">{workflow.map(([title,text],i)=><li><span class="step-number">0{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol><p class="workflow-note">Foto dan video direkam tim Anda dengan HP sesuai arahan. Paket tidak termasuk produksi di lokasi atau talent eksternal.</p></div></section>

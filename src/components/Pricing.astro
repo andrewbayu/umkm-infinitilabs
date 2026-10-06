@@ -1,0 +1,14 @@
+---
+import type { Service } from '../data/services';
+import { shortMoney, whatsapp, aiCopy, operatingTerms } from '../data/site';
+interface Props { service: Service }
+const { service: s } = Astro.props;
+---
+<section class="section pricing-section" id="paket"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Cakupan yang jelas, sejak awal</p><h2>Pilih ruang untuk<br /><em>berkembang.</em></h2></div><p>Dua pilihan untuk {s.name}. Setiap paket mencakup strategi, pengolahan aset, dan evaluasi sesuai scope.</p></div>
+ <div class="pricing-cards">{s.tiers.map((t,i)=><article class:list={['price-card',{ expanded:i===1 }]}><span class="eyebrow">{i===1 ? 'Cakupan lebih lengkap' : 'Fokus pada kebutuhan utama'}</span><h3>{t.name}</h3><p class="price">{shortMoney(t.price)}<span>/bulan</span></p>{t.media > 0 ? <p class="price-breakdown">{shortMoney(t.media)} net media + {shortMoney(t.fee)} fee</p> : <p class="price-breakdown">Pengelolaan konten organik · tanpa saldo iklan</p>}<p class="tier-output">{t.counts.videos} video + {t.counts.statics} aset statis/carousel{t.counts.stories > 0 && ` + ${t.counts.stories} frame Story`}{t.counts.extraStories && ` + ${t.counts.extraStories} frame aktivasi`}</p><p class="ai-quota">AI Content Creation termasuk — maks. {t.aiMax} aset di dalam kuota.</p><a class="button" href={whatsapp(s.name,t)} target="_blank" rel="noopener noreferrer">Pilih {t.name}<span aria-hidden="true">↗</span></a></article>)}</div>
+ <p class="pricing-terms">Per bulan, dibayar di awal · Minimum 3 bulan · 1 brand, 1 lokasi · Harga sebelum pajak. Produksi foto/video di lokasi oleh tim Anda.</p>
+ <div class="comparison" role="table" aria-label={`Perbandingan tujuh fitur ${s.name}`}><div class="comparison-header" role="row"><span role="columnheader">Cakupan per bulan</span>{s.tiers.map(t=><span role="columnheader">{t.name}</span>)}</div>{s.rows.map((row,i)=><div class="comparison-row" role="row"><span class="feature-name" role="rowheader">{row}</span>{s.tiers.map(t=><div role="cell"><span class="mobile-tier" aria-hidden="true">{t.name}</span><p>{t.features[i]}</p></div>)}</div>)}</div>
+ <div class="scope-notes">{s.notes.map(n=><p>{n}</p>)}</div>
+ <aside class="ai-note"><span class="sparkle" aria-hidden="true">✳</span><div><h3>AI Content Creation Included</h3><p>{aiCopy} Kuota sudah masuk output paket, bukan konten tambahan.</p></div></aside>
+ <details class="terms-details"><summary>Ketentuan kerja sama & batasan cakupan <span aria-hidden="true">+</span></summary><ul>{operatingTerms.map(t=><li>{t}</li>)}</ul><p>AI melalui review manusia dan persetujuan klien. Bentuk produk, porsi, layout kamar, pemandangan, dan fasilitas tetap akurat. Penggunaan wajah/suara memerlukan izin. Disclosure platform diterapkan saat relevan. Tidak termasuk 3D kompleks, film AI panjang, generasi tanpa batas, atau digital twin.</p></details>
+ </div></section>
