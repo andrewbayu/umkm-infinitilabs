@@ -60,3 +60,7 @@ Astro reference checked at implementation: https://docs.astro.build/en/install-a
 The homepage and service heroes use original photo-composite advertising key visuals: realistic models, foreground products, floating content panels, and designed campaign typography. Galleries combine these three posters with three iPhone-style creator stills. Each package has a horizontal per-content gallery with descriptive captions; creator frames include accessible HTML text overlays. No full-account embeds or third-party embed scripts remain. These images are visibly labeled illustrations, not client recordings or campaign results. The supplied Instagram post remains a direct source link.
 
 Originals: `assets/generated/`. Optimized AVIF/WebP: `public/images/`. Regenerate using `node scripts/prepare-assets.mjs`.
+
+## Customer-facing language
+
+Service names now read Konten Media Sosial, Promosi Menu & Paket, and Iklan Instagram & Facebook; existing route slugs remain unchanged. Copy uses direct everyday Indonesian. CTA buttons explicitly start WhatsApp conversations. See `COPY-DECISIONS.md` for audience, offer, and CTA choices. Revised poster text was edited with built-in imagegen; source files remain in `assets/generated/`, with edit prompts in `DIRECT-COPY-PROMPTS.md`.

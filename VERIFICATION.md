@@ -18,3 +18,7 @@ Campaign visual revision — 7 October 2026: replaced scenery with three generat
 - Lighthouse was used temporarily and removed from project dependencies after capturing HTML/JSON reports. The permanent verification script uses Playwright and axe.
 
 Remaining external dependency: choose hosting, create a new project, add the exact provider-specified `umkm` DNS record, and verify TLS/production indexing. Root-domain content and DNS have not been modified.
+
+## Direct Indonesian copy — 7 October 2026
+
+Rewrote homepage, service names and descriptions, pricing features, captions, WhatsApp messages, navigation, FAQ, terms, simulation explanations, privacy, metadata, and text inside all three generated campaign posters. Prices, media/fee amounts, service slugs, tier names, monthly counts, AI limits, and seven-row comparisons were compared programmatically against the prior commit and remain unchanged. Build/typecheck passed with zero diagnostics; 25 route/viewport checks, WCAG desktop/mobile scans, keyboard interactions, internal links, and WhatsApp checks passed. Final optimized poster assets and homepage layout were also checked after rebuilding.

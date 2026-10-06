@@ -34,17 +34,17 @@ const schema = serviceName ? { '@context':'https://schema.org', '@type':'Service
   <a class="skip-link" href="#main">Langsung ke konten</a>
   <header class="site-header wrap">
    <a href="/" class="wordmark" aria-label="InfinitiLabs, halaman paket"><img src="/images/infinitilabs-logo-original.png" width="620" height="96" alt="InfinitiLabs" /></a>
-   <nav class="desktop-nav" aria-label="Navigasi utama"><a href="/#strategi">Paket</a><a href="/#cara-kerja">Cara Kerja</a><a href="/#faq">FAQ</a></nav>
-   <a class="button header-cta" href={whatsapp()} target="_blank" rel="noopener noreferrer">Konsultasikan Bisnis Anda <span aria-hidden="true">↗</span></a>
-   <details class="mobile-menu"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Navigasi ponsel"><a href="/#strategi">Paket</a><a href="/#cara-kerja">Cara Kerja</a><a href="/#faq">FAQ</a><a href={whatsapp()} target="_blank" rel="noopener noreferrer">Konsultasi via WhatsApp ↗</a></nav></details>
+   <nav class="desktop-nav" aria-label="Navigasi utama"><a href="/#strategi">Paket</a><a href="/#cara-kerja">Cara Kerja</a><a href="/#faq">Tanya Jawab</a></nav>
+   <a class="button header-cta" href={whatsapp()} target="_blank" rel="noopener noreferrer">Tanya Paket lewat WhatsApp <span aria-hidden="true">↗</span></a>
+   <details class="mobile-menu"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Navigasi ponsel"><a href="/#strategi">Paket</a><a href="/#cara-kerja">Cara Kerja</a><a href="/#faq">Tanya Jawab</a><a href={whatsapp()} target="_blank" rel="noopener noreferrer">Tanya paket lewat WhatsApp ↗</a></nav></details>
   </header>
-  <aside class="package-context wrap" aria-label="Tentang halaman paket"><span>Paket khusus F&B & hospitality</span><a href="https://weareinfiniti.id/" target="_blank" rel="noopener noreferrer">Bagian dari InfinitiLabs <span aria-hidden="true">↗</span></a></aside>
+  <aside class="package-context wrap" aria-label="Tentang halaman paket"><span>Paket kuliner & penginapan</span><a href="https://weareinfiniti.id/" target="_blank" rel="noopener noreferrer">Bagian dari InfinitiLabs <span aria-hidden="true">↗</span></a></aside>
   <main id="main"><slot /></main>
   <footer class="footer wrap">
-   <div class="footer-top"><div><a class="wordmark" href="/" aria-label="InfinitiLabs, halaman paket"><img src="/images/infinitilabs-logo-original.png" width="620" height="96" alt="InfinitiLabs" /></a><p>Paket khusus untuk café, restoran, bakery,<br />hotel, guesthouse, dan villa.</p></div><div class="footer-links"><span class="eyebrow">Paket F&B & hospitality</span>{services.map(s=><a href={`/${s.slug}/`}>{s.name}</a>)}</div><div class="footer-links"><span class="eyebrow">Mari terhubung</span><a href={`mailto:${site.email}`}>{site.email}</a><a href="https://weareinfiniti.id/" target="_blank" rel="noopener noreferrer">Tentang InfinitiLabs ↗</a><a href="/privacy/">Privasi</a></div></div>
+   <div class="footer-top"><div><a class="wordmark" href="/" aria-label="InfinitiLabs, halaman paket"><img src="/images/infinitilabs-logo-original.png" width="620" height="96" alt="InfinitiLabs" /></a><p>Paket khusus untuk café, restoran, bakery,<br />hotel, guesthouse, dan villa.</p></div><div class="footer-links"><span class="eyebrow">Paket kuliner & penginapan</span>{services.map(s=><a href={`/${s.slug}/`}>{s.name}</a>)}</div><div class="footer-links"><span class="eyebrow">Hubungi kami</span><a href={`mailto:${site.email}`}>{site.email}</a><a href="https://weareinfiniti.id/" target="_blank" rel="noopener noreferrer">Tentang InfinitiLabs ↗</a><a href="/privacy/">Privasi</a></div></div>
    <div class="footer-bottom"><span>© {new Date().getFullYear()} InfinitiLabs.</span><span>Bagian dari InfinitiLabs · weareinfiniti.id</span></div>
   </footer>
-  <a class="mobile-cta button" href={whatsapp()} target="_blank" rel="noopener noreferrer">Konsultasikan Bisnis Anda <span aria-hidden="true">↗</span></a>
+  <a class="mobile-cta button" href={whatsapp()} target="_blank" rel="noopener noreferrer">Tanya Paket lewat WhatsApp <span aria-hidden="true">↗</span></a>
   <script>
    document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', () => document.querySelector('.mobile-menu')?.removeAttribute('open')));
    document.addEventListener('keydown', event => { if (event.key === 'Escape') { const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu'); if (menu?.open) { menu.open = false; menu.querySelector('summary')?.focus(); } } });

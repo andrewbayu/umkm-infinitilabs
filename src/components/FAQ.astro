@@ -2,4 +2,4 @@
 interface Props { items: string[][] }
 const { items } = Astro.props;
 ---
-<section class="section wrap faq-section" id="faq"><div><p class="eyebrow">Sebelum kita mulai</p><h2>Mungkin ini yang<br />Anda pikirkan.</h2><p>Kejelasan di awal,<br />kerja sama yang lebih nyaman.</p></div><div class="faq-list">{items.map(([q,a])=><details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>
+<section class="section wrap faq-section" id="faq"><div><p class="eyebrow">Tanya jawab</p><h2>Pertanyaan<br />tentang paket.</h2><p>Cek cara kerja, yang termasuk, dan yang perlu disiapkan tim Anda.</p></div><div class="faq-list">{items.map(([q,a])=><details><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>

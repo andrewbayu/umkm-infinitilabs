@@ -1,38 +1,38 @@
 export const site = {
   name: 'InfinitiLabs', base: 'https://umkm.weareinfiniti.id', phone: '6285212924950', email: 'hi@adityabayu.com',
-  title: 'Paket Marketing F&B & Hospitality — InfinitiLabs',
-  description: 'Paket khusus InfinitiLabs untuk café, restoran, bakery, hotel, dan villa. Bandingkan harga serta cakupan konten, campaign, dan iklan mulai Rp3,5 juta/bulan.',
+  title: 'Paket Konten & Iklan untuk Kuliner dan Penginapan — InfinitiLabs',
+  description: 'Paket khusus InfinitiLabs untuk café, restoran, bakery, hotel, dan villa. Lihat harga dan isi paket konten media sosial, promosi menu, serta iklan mulai Rp3,5 juta/bulan.',
 };
 export const money = (n: number) => 'Rp' + new Intl.NumberFormat('id-ID').format(n);
 export const shortMoney = (n: number) => 'Rp' + new Intl.NumberFormat('id-ID', { maximumFractionDigits: 1 }).format(n / 1000000) + ' juta';
 export function whatsapp(service?: string, tier?: { name: string; price: number }) {
   const message = service && tier
-    ? `Halo InfinitiLabs, saya tertarik dengan ${service} — ${tier.name} (${money(tier.price)}/bulan). Nama bisnis: ... Jenis bisnis: ... Lokasi: ... Produk/paket yang ingin diprioritaskan: ...`
-    : 'Halo InfinitiLabs, saya ingin konsultasi paket untuk bisnis F&B/hospitality. Nama bisnis: ... Jenis bisnis: ... Lokasi: ...';
+    ? `Halo InfinitiLabs, saya tertarik dengan ${service} — ${tier.name} (${money(tier.price)}/bulan). Nama bisnis: ... Jenis bisnis: ... Lokasi: ... Produk/paket yang ingin dipromosikan: ...`
+    : 'Halo InfinitiLabs, saya ingin tanya paket untuk bisnis kuliner/penginapan. Nama bisnis: ... Jenis bisnis: ... Lokasi: ...';
   return `https://wa.me/${site.phone}?${new URLSearchParams({ text: message })}`;
 }
 export const workflow = [
-  ['Kenali bisnis Anda', 'Bahas produk, pelanggan, aset, dan tujuan yang ingin diprioritaskan.'],
-  ['Siapkan bahan dari lokasi Anda', 'Kami kirim arahan rekaman. Tim Anda mengambil foto dan video dengan HP.'],
-  ['Kami olah dan Anda review', 'Tim InfinitiLabs menyusun konten atau iklan untuk persetujuan Anda.'],
-  ['Tayang, pelajari, perbaiki', 'Materi dipublikasikan sesuai paket, lalu dievaluasi untuk langkah berikutnya.'],
+ ['Bahas kebutuhan bisnis', 'Ceritakan produk, pelanggan, dan apa yang ingin Anda promosikan.'],
+ ['Tim Anda ambil foto dan video', 'Kami beri panduan rekaman yang bisa dilakukan dengan HP.'],
+ ['Kami buat kontennya', 'Kami edit dan desain konten. Anda cek hasilnya dan beri masukan.'],
+ ['Konten tayang, hasilnya dicek', 'Kami jadwalkan posting atau jalankan iklan sesuai paket, lalu laporkan hasilnya.'],
 ];
 export const sharedFaq = [
-  ['Apakah bisa untuk bisnis di luar Jabodetabek?', 'Ya. Pengelolaan dilakukan remote. Tim Anda menyediakan foto/video dari lokasi mengikuti brief kami.'],
-  ['Apakah termasuk sesi foto atau video di lokasi?', 'Tidak. Paket mencakup pengarahan dan pengolahan konten. Produksi lokal dapat dibahas sebagai pekerjaan terpisah.'],
-  ['Bagaimana kalau belum punya stok konten?', 'Kami periksa kesiapan aset saat konsultasi. Jika ada PIC yang dapat merekam dengan HP, kami arahkan pengambilannya. Kebutuhan produksi khusus dibahas terpisah.'],
-  ['Apa yang dimaksud AI Content Creation?', 'Pengembangan artwork, visual pendukung, dan animasi berbantuan AI sesuai konsep. Output masuk kuota paket dan tetap melalui review. Produk serta fasilitas memakai aset asli sebagai acuan.'],
-  ['Apakah termasuk membalas DM dan reservasi?', 'Tidak. Tim Anda menangani inquiry, pesanan, dan booking. Template respons tersedia sesuai paket.'],
-  ['Berapa lama kerja samanya?', 'Minimum tiga bulan, dengan pembayaran setiap bulan di awal. Rencana dan hasil dievaluasi selama kerja sama.'],
-  ['Apakah ada jaminan ramai atau sales?', 'Tidak ada jaminan penjualan. Kami bertanggung jawab pada scope dan evaluasi sesuai paket; hasil bisnis juga bergantung pada produk, penawaran, layanan, serta follow-up.'],
-  ['Bisa untuk beberapa cabang?', 'Harga berlaku untuk satu brand dan satu lokasi/properti. Kebutuhan beberapa cabang memerlukan scope terpisah.'],
+ ['Bisa untuk bisnis di luar Jabodetabek?', 'Bisa. Kami bekerja secara online. Tim Anda mengambil foto dan video dari lokasi dengan panduan kami.'],
+ ['Apakah tim InfinitiLabs datang untuk foto atau syuting?', 'Tidak termasuk dalam paket ini. Kami memberi panduan rekaman dan mengolah hasilnya. Jika perlu tim produksi di lokasi, pekerjaan dan biayanya dibahas terpisah.'],
+ ['Kalau belum punya foto dan video, bagaimana?', 'Tim Anda bisa mengambil foto dan video dengan HP. Saat konsultasi, kami cek apa yang sudah tersedia dan siapa yang bisa merekam. Jika butuh produksi khusus, biayanya dibahas terpisah.'],
+ ['Bantuan AI dipakai untuk apa?', 'Untuk membuat desain, gambar pendukung, atau animasi sesuai kebutuhan konten. Foto produk dan fasilitas asli menjadi acuan. Konten yang memakai AI sudah masuk jumlah konten paket, bukan tambahan, dan perlu persetujuan Anda sebelum tayang.'],
+ ['Apakah termasuk membalas DM dan mengurus pesanan?', 'Tidak. Tim Anda tetap menjawab pertanyaan, menerima pesanan, dan mengurus reservasi. Kami menyiapkan contoh jawaban sesuai paket.'],
+ ['Berapa lama kerja samanya?', 'Minimal 3 bulan. Pembayaran dilakukan di awal setiap bulan. Kami mengecek pekerjaan dan hasilnya selama kerja sama.'],
+ ['Apakah penjualan dijamin meningkat?', 'Tidak ada jaminan penjualan. Kami mengerjakan layanan dan evaluasi sesuai paket. Hasil juga bergantung pada produk, harga, pelayanan, dan cara tim Anda menindaklanjuti calon pelanggan.'],
+ ['Bisa untuk beberapa cabang?', 'Harga berlaku untuk satu brand di satu lokasi atau properti. Jika ada beberapa cabang, cakupan pekerjaan dan biayanya dibahas terpisah.'],
 ];
-export const aiCopy = 'Pengembangan visual dan animasi berbantuan AI, dipadukan dengan aset asli bisnis Anda untuk menghasilkan konten yang khas dan sesuai campaign.';
+export const aiCopy = 'Kami bisa memakai AI untuk membantu membuat desain, gambar, atau animasi dari foto dan video asli bisnis Anda. Hasilnya tetap diperiksa oleh tim kami dan disetujui oleh Anda.';
 export const operatingTerms = [
- 'Satu brand dan satu lokasi/properti. Pembayaran bulanan di awal, minimum kerja sama tiga bulan. Harga sebelum pajak yang berlaku. Tidak ada biaya onboarding tersembunyi; pekerjaan tambahan melalui quotation tertulis.',
- 'Satu PIC klien menyiapkan fakta, akses, persetujuan, serta foto/video asli yang legal digunakan. Rekaman dilakukan tim Anda dalam 1–2 batch sederhana per bulan sesuai brief. Produksi di lokasi tidak termasuk.',
- 'Essential/Local: 1 putaran revisi per batch. Signature/Local Plus: 2 putaran. Koreksi kesalahan fakta dari kami tidak mengurangi kuota revisi. Konsep baru setelah persetujuan memerlukan quotation terpisah.',
- 'Review klien maksimal 2 hari kerja. Konten tidak ditayangkan tanpa persetujuan. Keterlambatan aset atau persetujuan menggeser jadwal; penggantian dan rollover disepakati tertulis.',
- 'Story dihitung per frame; carousel maksimal 5 slide. Satu aset unik yang dipublikasikan ulang ke beberapa platform tetap dihitung satu. Kuota AI adalah batas maksimum di dalam output, bukan tambahan; penggunaannya mengikuti kesesuaian konsep dan kualitas aset.',
- 'Tim Anda menangani DM, layanan pelanggan, pesanan, inventori, harga, serta reservasi. Tidak termasuk fotografer, talent/creator eksternal, food stylist, influencer, hadiah, event, community management, OTA, website, atau iklan di luar paket Local Awareness Ads.',
+ 'Harga berlaku untuk satu brand di satu lokasi atau properti. Pembayaran di awal setiap bulan, dengan kerja sama minimal 3 bulan. Harga belum termasuk pajak yang berlaku. Tidak ada biaya persiapan awal yang tersembunyi. Pekerjaan tambahan dibuatkan penawaran harga tertulis.',
+ 'Tunjuk satu orang dari tim Anda untuk menyiapkan informasi, akses akun, persetujuan, serta foto dan video yang boleh digunakan. Tim Anda merekam 1–2 kali per bulan sesuai panduan kami. Paket tidak termasuk produksi di lokasi.',
+ 'Essential/Local mendapat 1 putaran revisi untuk setiap kelompok konten yang dikirim. Signature/Local Plus mendapat 2 putaran. Kesalahan informasi dari kami diperbaiki tanpa mengurangi jatah revisi. Perubahan konsep setelah disetujui dibuatkan penawaran harga terpisah.',
+ 'Anda mengecek dan menyetujui konten dalam maksimal 2 hari kerja. Konten tidak tayang tanpa persetujuan Anda. Jika foto/video atau persetujuan terlambat, jadwal ikut bergeser. Penggantian konten dan pemindahan jatah ke bulan berikutnya disepakati tertulis.',
+ 'Story dihitung per tampilan; carousel atau posting geser maksimal 5 slide. Konten yang sama diunggah ke beberapa platform tetap dihitung satu. Batas konten yang dibantu AI sudah masuk jumlah konten paket, bukan tambahan. Pemakaiannya disesuaikan dengan kebutuhan dan kualitas foto/video.',
+ 'Tim Anda menangani DM, layanan pelanggan, pesanan, stok, harga, dan reservasi. Paket tidak termasuk fotografer, model atau pembuat konten dari luar, penata makanan, influencer, hadiah, acara, membalas komentar, pengelolaan situs pemesanan penginapan, website, atau iklan di luar paket Iklan Instagram & Facebook.',
 ];
