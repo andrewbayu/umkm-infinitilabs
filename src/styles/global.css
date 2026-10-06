@@ -24,3 +24,32 @@
  @media(max-width:700px){.strategy-content>p:not(.organic-label):not(.ads-badge){min-height:0}.steps{grid-template-columns:1fr}.steps h3{font-size:27px}.step-number{margin-bottom:14px}.comparison-row>div{grid-template-columns:78px 1fr;gap:12px}}
  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.button:hover{transform:none}}
 }
+
+@layer responsive {
+.content-frame{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:2/3;border-radius:8px;background:#eee;min-width:0}
+.content-frame::after{content:"";position:absolute;inset:35% 0 0;z-index:0;background:linear-gradient(transparent,rgba(0,0,0,.82))}
+.content-frame>picture,.content-frame>picture>img,.service-hero figure .content-frame>picture,.service-hero figure .content-frame>picture>img,.ai-visual .content-frame>picture,.ai-visual .content-frame>picture>img{display:block;position:absolute;inset:0;height:100%;width:100%;object-fit:cover}
+.frame-top{position:absolute;z-index:1;top:14px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.frame-top>span{font-size:10px;line-height:1.4;background:#fff;color:#191919;padding:6px 8px;border-radius:3px;max-width:58%}
+.frame-top .frame-label{background:#191919;color:#fff;white-space:nowrap}
+.frame-copy{position:absolute;z-index:1;bottom:24px;left:20px;right:20px}
+.frame-copy .frame-hook{font-family:var(--sans);font-size:clamp(24px,2.1vw,32px);font-weight:700;line-height:1.16;letter-spacing:-.04em;color:#fff;margin:0 0 13px;text-shadow:0 2px 12px #0008;text-wrap:balance}
+.frame-feature{display:inline-block;background:var(--accent);color:#191919;font-size:12px;line-height:1.5;font-weight:600;padding:7px 10px;border-radius:3px;transform:rotate(-2deg)}
+.strategy-visual{display:block;position:relative}.strategy-visual>span{display:none}.strategy-visual .content-frame{aspect-ratio:4/5}.strategy-visual .frame-hook{font-size:27px}
+.ai-visual{padding:0 35px 0 0}.ai-visual .content-frame{max-width:440px;transform:rotate(-2deg)}
+.service-hero figure{max-width:400px;margin-left:auto;width:100%}.service-hero figure .content-frame{aspect-ratio:2/3}
+.example-rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(350px,86vw);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 20px;overscroll-behavior-x:contain;scrollbar-color:#b9b600 #eee;scrollbar-width:thin}
+.example-rail:focus-visible{outline:2px solid var(--ink);outline-offset:5px}.sample-content{min-width:0;scroll-snap-align:start}.sample-caption{padding:22px 2px}.sample-caption h3{font:400 26px/1.2 var(--serif);margin:12px 0}.sample-caption>p:not(.eyebrow){font-size:16px;line-height:1.65}
+.sample-source{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:18px}.sample-source p{font-size:12px;max-width:480px}
+@media(max-width:700px){.strategy-visual .content-frame{aspect-ratio:4/5}.ai-visual{padding:0 14px 0 0}.service-hero figure{max-width:400px;margin-inline:auto}.sample-source{display:block}.sample-source a{margin-top:10px}.example-rail{gap:16px}}
+}
+
+@layer responsive {
+.campaign-visual{width:100%;margin:0;position:relative}.campaign-visual>picture{aspect-ratio:4/5;overflow:hidden;border-radius:8px}.campaign-visual>picture>img,.service-hero figure .campaign-visual>picture>img,.ai-visual .campaign-visual>picture>img{width:100%;height:auto;position:static;object-fit:contain}
+.campaign-visual figcaption{font-size:10px;color:var(--muted);line-height:1.5;padding-top:10px;letter-spacing:0;text-transform:none}
+.hero-key-visual{min-width:0}.hero-key-visual .campaign-visual{transform:rotate(1deg)}.hero-key-visual .campaign-visual>picture{box-shadow:0 14px 45px #1919190c}
+.service-hero figure .campaign-visual>picture{height:auto;width:100%}.strategy-visual .campaign-visual>picture{aspect-ratio:4/5}.strategy-visual .campaign-visual figcaption{display:none}.ai-visual .campaign-visual>picture{height:auto}.sample-content>.campaign-visual>picture{aspect-ratio:4/5}.sample-content>.content-frame{aspect-ratio:4/5}.sample-content .frame-top>span:first-child{max-width:65%}.sample-content>.campaign-visual figcaption{display:none}
+@media(max-width:700px){.home-hero{gap:34px}.hero-key-visual{max-width:480px;width:100%;margin-inline:auto}}
+}
+
+@layer responsive {.service-art{width:100%;max-width:440px;margin-left:auto}@media(max-width:700px){.service-art{margin-inline:auto}}}

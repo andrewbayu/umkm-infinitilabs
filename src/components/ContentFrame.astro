@@ -1,0 +1,12 @@
+---
+import Photo from './Photo.astro';
+import CampaignVisual from './CampaignVisual.astro';
+import type { ContentExample } from '../data/content-examples';
+interface Props { example: ContentExample; eager?: boolean; compact?: boolean }
+const { example, eager = false, compact = false } = Astro.props;
+---
+{example.poster ? <CampaignVisual name={example.image} alt={example.alt} eager={eager} /> : <div class:list={['content-frame', { compact }]}>
+ <Photo name={example.image} alt={example.alt} eager={eager} />
+ <div class="frame-top"><span>{example.format}</span><span class="frame-label">Ilustrasi AI</span></div>
+ <div class="frame-copy"><p class="frame-hook">{example.hook}</p><span class="frame-feature">{example.feature}</span></div>
+</div>}

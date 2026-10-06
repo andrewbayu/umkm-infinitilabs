@@ -1,0 +1,6 @@
+---
+import Photo from './Photo.astro';
+interface Props { name: string; alt: string; eager?: boolean }
+const { name, alt, eager = false } = Astro.props;
+---
+<figure class="campaign-visual"><Photo name={name} alt={alt} eager={eager} /><figcaption>Ilustrasi AI · Contoh desain campaign</figcaption></figure>

@@ -2,7 +2,9 @@
 
 Brand/package revision: supplied logo integrated unchanged, white/yellow/black palette applied, package positioning and parent-site link added throughout. Build/typecheck and all 25 responsive checks plus axe scans passed again after this revision. Performance figures below were measured before this visual revision and have not been remeasured.
 
-Video-reference revision: each service page now includes an official TikTok creator-profile embed and the selected Instagram embed in a horizontal gallery. Privacy copy reflects third-party embeds. Source accounts are disclosed as cross-industry references. Build and responsive checks not yet rerun for this revision.
+Campaign visual revision — 7 October 2026: replaced scenery with three generated photo-composite campaign posters and three creator selfie concept stills. Added hero key visuals, per-content horizontal dummy portfolio galleries, and section illustrations. Removed TikTok creator-profile and Instagram embeds; retained only the supplied individual Instagram post link. Build/typecheck passed with zero diagnostics. All 25 viewport/route checks and desktop/mobile axe scans passed. Additional gallery check verified five individual samples per service, keyboard horizontal scrolling, and no account embeds. Desktop hero, mobile layout, and gallery screenshots inspected. Earlier Lighthouse figures below have not been remeasured for these assets.
+
+
 
 - Astro static build and typecheck: passed without errors, warnings, or hints.
 - Five HTML pages emitted. Direct loads and refreshes tested for every route.
