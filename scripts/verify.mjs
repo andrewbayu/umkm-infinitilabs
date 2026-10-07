@@ -34,7 +34,15 @@ try {
   report.accessibility.push({route,violations:results.violations.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.map(n=>n.target)}))});
   if(route!=='/' && route!=='/privacy/'){
    assert.equal(await page.locator('.pricing-cards .price-card').count(),2);
-   assert.equal(await page.locator('.pricing-section .comparison-row').count(),7);
+   assert.equal(await page.locator('.pricing-section .comparison-row').count(),route==='/creator-style-social-content/' ? 9 : 7);
+   if(route==='/creator-style-social-content/'){
+    const excluded=page.locator('.price-card').first().locator('.feature-excluded');
+    assert.equal(await excluded.count(),2);
+    assert.deepEqual(await excluded.locator('strong').allTextContents(),['Bio-storefront thundr.id','Instagram AI auto-reply']);
+    for(const item of await excluded.all()){assert.equal(await item.locator('span').innerText(),'✕');assert.match(await item.locator('p').innerText(),/Tidak termasuk/);}
+    assert.equal(await page.locator('.price-card').nth(1).locator('.feature-excluded').count(),0);
+    assert.equal(await page.locator('#perbandingan .feature-status.excluded').count(),2);
+   }
    const serviceName = {'/creator-style-social-content/':'UGC AI Social Package','/signature-product-campaign/':'Promosi Menu & Paket','/local-awareness-ads/':'Local Awareness Ads'}[route];
    for(const card of await page.locator('.price-card').all()){const tier=await card.locator('h3').innerText();const href=await card.locator('a').getAttribute('href');const msg=new URL(href).searchParams.get('text');assert.ok(msg.includes(tier));assert.ok(msg.includes(serviceName));assert.match(msg,/Rp[\d.]+\/bulan/);}
   }

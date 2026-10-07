@@ -3,7 +3,7 @@ import type { Service, Tier } from '../data/services';
 import { shortMoney, whatsapp } from '../data/site';
 interface Props { service: Service; tier: Tier; index: number; compact?: boolean }
 const { service: s, tier: t, index, compact = false } = Astro.props;
-const scopeRows = t.media ? [0,2,4,5,6] : [0,1,2,5,6];
+const scopeRows = s.slug === 'creator-style-social-content' ? [0,1,2,3,6,7,8] : t.media ? [0,2,4,5,6] : [0,1,2,5,6];
 const fit = s.slug === 'creator-style-social-content'
  ? ['Untuk mulai posting secara rutin.', 'Untuk lebih banyak konten dan dua seri rutin.']
  : s.slug === 'signature-product-campaign'
@@ -21,6 +21,11 @@ const fit = s.slug === 'creator-style-social-content'
  <p class="output-limit">{t.media ? `${t.counts.videos + t.counts.statics} creative termasuk copywriting. Video AI motion graphic / gaya UGC maks. 20 detik/video.` : 'Video maks. 45 detik · Carousel maks. 5 slide.'}{t.counts.extraStories && ` + ${t.counts.extraStories} Story untuk jajak pendapat.`}</p>
  <p class="ai-quota">{t.media ? 'Video AI sudah masuk kuota creative di atas, bukan tambahan.' : (t.aiNote ?? `Maks. ${t.aiMax} konten dibantu AI, sudah masuk jumlah di atas.`)}</p></div>
  {t.initialOutputs && <div class="plan-scope initial-output"><h4>Output di awal kerja sama</h4><ul>{t.initialOutputs.map(output => <li><span aria-hidden="true">✓</span><div><p>{output}</p></div></li>)}</ul><p class="output-limit">Dikerjakan sekali di awal kontrak, bukan output baru setiap bulan.</p></div>}
- <div class="plan-scope"><h4>Pekerjaan yang kami tangani <span>(SoW)</span></h4><ul>{scopeRows.slice(0,compact ? 3 : scopeRows.length).map(i => <li><span aria-hidden="true">✓</span><div><strong>{s.rows[i]}</strong><p>{t.features[i]}</p></div></li>)}</ul>{compact && t.media > 0 && <p class="output-limit">{t.features[5]} {index === 1 && 'Tambahan budget hingga Rp20 juta/bulan; fee dan kuota output tetap.'}</p>}</div>
+ <div class="plan-scope"><h4>Cakupan layanan <span>(SoW)</span></h4><ul>{scopeRows.slice(0,compact ? 3 : scopeRows.length).map(i => <li class:list={{"feature-excluded":t.excludedFeatures?.includes(i)}}><span aria-hidden="true">{t.excludedFeatures?.includes(i) ? '✕' : '✓'}</span><div><strong>{s.rows[i]}</strong><p>{t.features[i]}</p></div></li>)}</ul>{compact && t.media > 0 && <p class="output-limit">{t.features[5]} {index === 1 && 'Tambahan budget hingga Rp20 juta/bulan; fee dan kuota output tetap.'}</p>}</div>
  {compact && <a class="plan-detail" href={`/${s.slug}/#paket`}>Lihat seluruh pekerjaan & perbandingan <span aria-hidden="true">→</span></a>}
 </article>
+
+<style>
+ .plan-scope li.feature-excluded>span{background:var(--wash);color:var(--muted);border:1px solid var(--line)}
+ .plan-scope li.feature-excluded strong{color:var(--muted)}
+</style>
