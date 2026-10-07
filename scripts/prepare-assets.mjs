@@ -9,7 +9,7 @@ for (const name of ['creator-cafe','campaign-bakery','hospitality-host']) {
  for (const width of [640,960,1200]) await sharp(`assets/generated/${name}.png`).resize(width, Math.round(width * 1.5)).avif({quality:48}).toFile(`public/images/${name}-${width}.avif`);
  for (const width of [640,1200]) await sharp(`assets/generated/${name}.png`).resize(width, Math.round(width * 1.5)).webp({quality:80}).toFile(`public/images/${name}-${width}.webp`);
 }
-for (const name of ['campaign-hero','campaign-food','campaign-stay']) {
+for (const name of ['campaign-hero','campaign-food','campaign-stay','ugc-ai-social']) {
  for (const width of [640,960,1200]) await sharp(`assets/generated/${name}.png`).resize(width, Math.round(width * 1.25)).avif({quality:48}).toFile(`public/images/${name}-${width}.avif`);
  for (const width of [640,1200]) await sharp(`assets/generated/${name}.png`).resize(width, Math.round(width * 1.25)).webp({quality:80}).toFile(`public/images/${name}-${width}.webp`);
 }

@@ -35,7 +35,7 @@ try {
   if(route!=='/' && route!=='/privacy/'){
    assert.equal(await page.locator('.pricing-cards .price-card').count(),2);
    assert.equal(await page.locator('.pricing-section .comparison-row').count(),7);
-   const serviceName = {'/creator-style-social-content/':'Konten Media Sosial','/signature-product-campaign/':'Promosi Menu & Paket','/local-awareness-ads/':'Local Awareness Ads'}[route];
+   const serviceName = {'/creator-style-social-content/':'UGC AI Social Package','/signature-product-campaign/':'Promosi Menu & Paket','/local-awareness-ads/':'Local Awareness Ads'}[route];
    for(const card of await page.locator('.price-card').all()){const tier=await card.locator('h3').innerText();const href=await card.locator('a').getAttribute('href');const msg=new URL(href).searchParams.get('text');assert.ok(msg.includes(tier));assert.ok(msg.includes(serviceName));assert.match(msg,/Rp[\d.]+\/bulan/);}
   }
   if(route==='/') {await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await page.screenshot({path:'test-results/home-desktop.png',fullPage:true});await page.screenshot({path:'test-results/desktop-fold.png'});}

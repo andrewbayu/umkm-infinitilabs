@@ -1,7 +1,7 @@
 ---
 interface Props { name: string; alt: string; eager?: boolean; class?: string }
 const { name, alt, eager = false, class: className } = Astro.props;
-const poster = ['campaign-hero','campaign-food','campaign-stay'].includes(name);
+const poster = ['campaign-hero','campaign-food','campaign-stay','ugc-ai-social'].includes(name);
 const portrait = ['creator-cafe','campaign-bakery','hospitality-host'].includes(name);
 ---
 <picture class={className}>

@@ -4,14 +4,14 @@ import { campaignExamples } from '../data/content-examples';
 import { shortMoney } from '../data/site';
 import Photo from './Photo.astro';
 const descriptions = [
- 'Untuk café, restoran, bakery, hotel, dan villa yang butuh konten rutin. Pilih konten dari rekaman tim Anda atau konten AI dengan Virtual KOL. Strategi, produksi, dan penjadwalan termasuk sesuai paket.',
+ 'Untuk café, restoran, bakery, hotel, dan villa yang butuh konten rutin. Kami buat konten AI dengan Virtual KOL khusus bisnis kamu. Termasuk auto-reply Instagram dan gratis bio-storefront thundr.id.',
  'Untuk usaha yang ingin mempromosikan menu baru, hampers, paket makan, atau paket menginap. Kami buat konten yang menjelaskan isi penawaran dan cara pesannya.',
  'Untuk F&B dan penginapan yang ingin dikenal calon pelanggan di area pilihan. Kami kelola iklan Instagram dan Facebook untuk pengenalan usaha dan chat.',
 ];
 ---
 <div class="service-package-grid">
  {services.map((service,index) => <article class="service-package-card">
-  <Photo name={campaignExamples[index].image} alt={campaignExamples[index].alt} class="service-package-image" />
+  <Photo name={index === 0 ? 'ugc-ai-social' : campaignExamples[index].image} alt={index === 0 ? services[0].alt : campaignExamples[index].alt} class="service-package-image" />
   <div class="service-package-body">
    <p class="eyebrow">{service.category}</p>
    <h3>{service.name}</h3>

@@ -6,6 +6,8 @@ import FAQ from '../components/FAQ.astro';
 import Workflow from '../components/Workflow.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 import Pricing from '../components/Pricing.astro';
+import ThundrShowcase from '../components/ThundrShowcase.astro';
+import CampaignVisual from '../components/CampaignVisual.astro';
 import Simulation from '../components/Simulation.astro';
 import VideoExamples from '../components/VideoExamples.astro';
 import { services, type Service } from '../data/services';
@@ -13,15 +15,23 @@ import { sharedFaq, shortMoney } from '../data/site';
 export function getStaticPaths() { return services.map(service => ({ params: { service: service.slug }, props: { service } })); }
 interface Props { service: Service }
 const { service: s } = Astro.props;
+const isUgc = s.slug === 'creator-style-social-content';
 ---
 <Layout title={s.title} description={s.description} serviceName={s.name}>
  <div class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Semua paket</a><span aria-hidden="true">/</span><span aria-current="page">{s.name}</span></nav></div>
- <section class="service-hero wrap"><div><p class="eyebrow">{s.name}</p><h1>{s.headline}</h1><p class="hero-description">{s.intro}</p><a class="button" href="#paket">{s.cta} <span aria-hidden="true">↓</span></a><p class="hero-meta">{s.tiers[0].media ? `Mulai ${shortMoney(s.tiers[0].price)}/bulan, termasuk ${shortMoney(s.tiers[0].media)} budget iklan.` : 'Mulai Rp3,5 juta/bulan · Bantuan AI termasuk.'}<br />Minimal 3 bulan. Dikerjakan secara online.</p></div><div class="service-art"><ContentFrame example={s.slug === "creator-style-social-content" ? campaignExamples[0] : s.slug === "signature-product-campaign" ? campaignExamples[1] : campaignExamples[2]} eager /></div></section>
- <nav class="service-nav wrap" aria-label="Lihat isi halaman"><a href="#contoh">Contoh konten</a><a href="#paket">Harga & isi paket</a><a href="#faq">Pertanyaan umum</a><a href="#strategi-lain">Paket lain ↗</a></nav>
+ <section class="service-hero wrap"><div><p class="eyebrow">{s.name}</p><h1>{s.headline}</h1><p class="hero-description">{s.intro}</p>{isUgc && <ul class="ugc-highlights"><li><strong>1 Virtual KOL khusus bisnis kamu</strong><span>Karakter digital yang konsisten di kontenmu.</span></li><li><strong>Konten UGC + auto-reply Instagram</strong><span>12 atau 20 konten per bulan, sesuai paket.</span></li><li><strong>Gratis bio-storefront thundr.id</strong><span>Satu link bio untuk profil, katalog, dan kontak.</span></li></ul>}<a class="button" href="#paket">{s.cta} <span aria-hidden="true">↓</span></a><p class="hero-meta">{s.tiers[0].media ? `Mulai ${shortMoney(s.tiers[0].price)}/bulan, termasuk ${shortMoney(s.tiers[0].media)} budget iklan.` : 'Mulai Rp3,5 juta/bulan · Bantuan AI termasuk.'}<br />Minimal 3 bulan. Dikerjakan secara online.</p></div><div class="service-art">{isUgc ? <CampaignVisual name="ugc-ai-social" alt={s.alt} eager /> : <ContentFrame example={s.slug === "creator-style-social-content" ? campaignExamples[0] : s.slug === "signature-product-campaign" ? campaignExamples[1] : campaignExamples[2]} eager />}</div></section>
+ <nav class="service-nav wrap" aria-label="Lihat isi halaman"><a href="#contoh">Contoh konten</a><a href="#paket">Harga & isi paket</a>{isUgc && <a href="#bio-storefront">Gratis bio-storefront</a>}<a href="#faq">Pertanyaan umum</a><a href="#strategi-lain">Paket lain ↗</a></nav>
  <Pricing service={s} />
+ {isUgc && <ThundrShowcase />}
  <section class="section wrap service-approach"><div><p class="eyebrow">Paket ini cocok untuk siapa?</p><h2>{s.fit}</h2></div><div><p class="lead">{s.approach}</p><p>{s.need}</p><p class="subtle">Dikerjakan secara online. Tim Anda menyiapkan informasi serta foto dan video asli bisnis sesuai kebutuhan paket. Tim foto atau syuting di lokasi belum termasuk.</p></div></section>
  <section class="section examples-home" id="contoh"><div class="wrap"><p class="eyebrow">Ide konten · Bukan hasil pekerjaan klien</p><h2>Contoh topik<br /><em>untuk bisnis Anda.</em></h2><div class="concept-grid">{s.examples.map(e=><article><p class="eyebrow">{e.niche}</p><h3>“{e.title}”</h3><p>{e.text}</p></article>)}</div></div></section>
  <VideoExamples service={s.slug} />{s.tiers[0].media > 0 && <Simulation service={s} />}
  <Workflow /><FAQ items={[...s.faq, ...sharedFaq]} /><FinalCTA headline={s.final} />
  <section class="section wrap related" id="strategi-lain"><p class="eyebrow">Butuh layanan lain?</p><h2>Lihat isi halaman lainnya.</h2><div>{services.filter(other=>other.slug!==s.slug).map(other=><a href={`/${other.slug}/`}><span>{other.name}</span><span aria-hidden="true">↗</span></a>)}</div></section>
 </Layout>
+
+<style>
+ .ugc-highlights{list-style:none;display:grid;gap:14px;padding:0;margin:24px 0 28px}
+ .ugc-highlights li{padding-left:16px;border-left:3px solid var(--accent);display:flex;flex-direction:column;gap:4px}
+ .ugc-highlights strong{font-size:14px;line-height:1.5}.ugc-highlights span{font-size:12px;color:var(--muted)}
+</style>
