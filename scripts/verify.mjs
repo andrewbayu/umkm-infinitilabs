@@ -53,24 +53,22 @@ try {
  await page.locator('.faq-list summary').first().focus();await page.keyboard.press('Enter');assert.equal(await page.locator('.faq-list details').first().getAttribute('open'),'');
  await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior),'auto');
  await page.goto(base+'/local-awareness-ads/',{waitUntil:'networkidle'});await page.screenshot({path:'test-results/ads-mobile.png',fullPage:true});
- // Check the package selector and contract disclosure before validating links.
+ // Check the three service cards and direct links to each package page.
  await page.goto(base+'/');
- const packageTabs=page.locator('.package-tabs [role="tab"]');
- assert.equal(await packageTabs.count(),3);
+ const serviceCards=page.locator('.service-package-card');
+ assert.equal(await serviceCards.count(),3);
+ const serviceRoutes=routes.slice(1,4);
  for(let i=0;i<3;i++){
-  await packageTabs.nth(i).click();
-  assert.equal(await packageTabs.nth(i).getAttribute('aria-selected'),'true');
-  assert.equal(await page.locator('.package-panel:visible').count(),1);
-  assert.equal(await page.locator('.package-panel:visible .price-card').count(),2);
-  for(const card of await page.locator('.package-panel:visible .price-card').all()){
-   assert.match(await card.locator('.contract-badge').innerText(),/3 bulan/);
-   assert.match(await card.locator('.contract-total').innerText(),/Dibayar per bulan/);
-   assert.equal(await card.locator('.plan-delivery h4').innerText(),'Output per bulan');
-   assert.match(await card.locator('.plan-scope:not(.initial-output) h4').innerText(),/SoW/);
-  }
+  const card=serviceCards.nth(i);
+  assert.equal(await card.locator('img').count(),1);
+  assert.ok((await card.locator('h3').innerText()).length>0);
+  assert.ok((await card.locator('.service-package-description').innerText()).length>0);
+  assert.match(await card.locator('.service-package-price').innerText(),/Mulai dari[\s\S]*Rp[\d,]+ juta/);
+  assert.equal(await card.locator('a.button').getAttribute('href'),serviceRoutes[i]);
+  await card.locator('a.button').click();
+  assert.equal(new URL(page.url()).pathname,serviceRoutes[i]);
+  await page.goto(base+'/');
  }
- await packageTabs.first().focus();await page.keyboard.press('End');assert.equal(await packageTabs.last().getAttribute('aria-selected'),'true');
- await page.keyboard.press('Home');assert.equal(await packageTabs.first().getAttribute('aria-selected'),'true');
  // Validate all internal route and fragment targets on each page.
  for(const route of routes){await page.goto(base+route);const links=await page.locator('a').evaluateAll(as=>as.map(a=>a.getAttribute('href')).filter(h=>h?.startsWith('/')||h?.startsWith('#')));for(const href of [...new Set(links)]){const u=new URL(href,base+route);assert.ok(routes.includes(u.pathname),`Unknown route ${href}`);if(u.hash){await page.goto(u.href);assert.equal(await page.locator(u.hash).count(),1,`Missing anchor ${u.href}`);}}}
  assert.equal(report.errors.length,0);

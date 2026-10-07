@@ -1,21 +1,43 @@
 ---
 import { services } from '../data/services';
-import TierCard from './TierCard.astro';
+import { campaignExamples } from '../data/content-examples';
+import { shortMoney } from '../data/site';
+import Photo from './Photo.astro';
+const descriptions = [
+ 'Untuk café, restoran, bakery, hotel, dan villa yang butuh konten rutin. Kami siapkan ide, edit rekaman tim Anda, lalu jadwalkan posting Instagram dan TikTok.',
+ 'Untuk usaha yang ingin mempromosikan menu baru, hampers, paket makan, atau paket menginap. Kami buat konten yang menjelaskan isi penawaran dan cara pesannya.',
+ 'Untuk F&B dan penginapan yang ingin dikenal calon pelanggan di area pilihan. Kami kelola iklan Instagram dan Facebook untuk pengenalan usaha dan chat.',
+];
 ---
-<div class="package-picker">
- <div class="package-tabs" role="tablist" aria-label="Pilih jenis layanan">{services.map((s,i) => <button type="button" role="tab" id={`tab-${s.slug}`} aria-selected={i === 0 ? 'true' : 'false'} aria-controls={`panel-${s.slug}`} tabindex={i === 0 ? 0 : -1}>{s.name}</button>)}</div>
- {services.map((s,i) => <section class="package-panel" role="tabpanel" id={`panel-${s.slug}`} aria-labelledby={`tab-${s.slug}`} hidden={i !== 0}><div class="package-panel-heading"><div><p class="eyebrow">{s.category}</p><h3>{s.name}</h3><p>{s.benefit}</p></div><a class="text-link" href={`/${s.slug}/`}>Lihat layanan lengkap ↗</a></div><div class="pricing-cards">{s.tiers.map((tier,index) => <TierCard service={s} tier={tier} index={index} compact />)}</div></section>)}
- <p class="package-responsibility">Semua paket: minimal 3 bulan · 1 brand, 1 lokasi · Tim Anda merekam foto/video, kami kerjakan secara online.</p>
+<div class="service-package-grid">
+ {services.map((service,index) => <article class="service-package-card">
+  <Photo name={campaignExamples[index].image} alt={campaignExamples[index].alt} class="service-package-image" />
+  <div class="service-package-body">
+   <p class="eyebrow">{service.category}</p>
+   <h3>{service.name}</h3>
+   <p class="service-package-description">{descriptions[index]}</p>
+   <div class="service-package-price"><span>Mulai dari</span><p><strong>{shortMoney(service.tiers[0].price)}</strong><span>/bulan</span></p><small>{service.tiers[0].media > 0 ? `Termasuk ${shortMoney(service.tiers[0].media)} budget iklan.` : 'Budget iklan terpisah.'}</small></div>
+   <a class="button" href={`/${service.slug}/`} aria-label={`Lihat Paket ${service.name}`}>Lihat Paket <span aria-hidden="true">↗</span></a>
+  </div>
+ </article>)}
 </div>
-<script>
- document.querySelectorAll<HTMLElement>('.package-picker').forEach(picker => {
-  const tabs = [...picker.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
-  const select = (tab: HTMLButtonElement) => {
-   tabs.forEach(button => { const active = button === tab; button.setAttribute('aria-selected',String(active)); button.tabIndex = active ? 0 : -1; const panel = document.getElementById(button.getAttribute('aria-controls')!); if (panel) panel.hidden = !active; });
-  };
-  tabs.forEach((tab,index) => {
-   tab.addEventListener('click',()=>select(tab));
-   tab.addEventListener('keydown',event=>{let next=index;if(event.key==='ArrowRight') next=(index+1)%tabs.length;else if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabs.length-1;else return;event.preventDefault();select(tabs[next]);tabs[next].focus();});
-  });
- });
-</script>
+<p class="package-responsibility">Semua paket: minimal 3 bulan · 1 brand, 1 lokasi · Dikerjakan secara online.</p>
+<style>
+ .service-package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+ .service-package-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;min-width:0}
+ .service-package-card :global(.service-package-image){display:block;background:var(--wash)}
+ .service-package-card :global(.service-package-image img){width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+ .service-package-body{display:flex;flex-direction:column;flex:1;padding:26px}
+ .service-package-body h3{font-size:27px;margin:12px 0 16px;line-height:1.2}
+ .service-package-description{font-size:14px;line-height:1.75;margin-bottom:26px}
+ .service-package-price{margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+ .service-package-price>span{font-size:12px;color:var(--muted)}
+ .service-package-price p{color:var(--ink);margin:5px 0 8px;line-height:1.3}
+ .service-package-price strong{font-size:30px;font-weight:650;letter-spacing:-.04em}
+ .service-package-price p>span{font-size:12px;margin-left:6px;color:var(--muted)}
+ .service-package-price small{font-size:12px;color:var(--muted)}
+ .service-package-body>.button{margin-top:22px;justify-content:space-between;width:100%}
+ .package-responsibility{font-size:12px;margin-top:22px}
+ @media(max-width:1000px){.service-package-grid{gap:16px}.service-package-body{padding:20px}.service-package-body h3{font-size:23px}.service-package-price strong{font-size:27px}}
+ @media(max-width:700px){.service-package-grid{grid-template-columns:1fr;gap:24px}.service-package-body{padding:24px}.service-package-body h3{font-size:27px}.service-package-price strong{font-size:30px}}
+</style>
