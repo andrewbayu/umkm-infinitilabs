@@ -1,6 +1,6 @@
 ---
 import { services } from '../data/services';
-import { campaignExamples } from '../data/content-examples';
+import { homepageServiceVisuals } from '../data/homepage-visuals';
 import { shortMoney } from '../data/site';
 import Photo from './Photo.astro';
 const descriptions = [
@@ -11,7 +11,7 @@ const descriptions = [
 ---
 <div class="service-package-grid">
  {services.map((service,index) => <article class="service-package-card">
-  <Photo name={index === 0 ? 'ugc-ai-social' : campaignExamples[index].image} alt={index === 0 ? services[0].alt : campaignExamples[index].alt} class="service-package-image" />
+  <Photo name={homepageServiceVisuals[index].name} alt={homepageServiceVisuals[index].alt} class="service-package-image" />
   <div class="service-package-body">
    <p class="eyebrow">{service.category}</p>
    <h3>{service.name}</h3>

@@ -1,0 +1,9 @@
+Reference: assets/generated/ugc-ai-social.png — edit target and composition reference.
+
+Edit the attached existing UGC AI social package poster. The user prefers THIS poster's playful editorial selfie collage to a minimal CGI image. Preserve its portrait 4:5 format, exact same fictional young Indonesian female creator, yellow cardigan, iced latte foreground, inset photos, phone storefront, white background, black bold headline "UGC AI" / "SOCIAL PACKAGE", yellow marker strokes, doodle accents and energetic composition. Make only the changes necessary for a truthful, clearly readable feature/benefit list IN the artwork.
+Use four strongly legible yellow-and-black sticker callouts with simple black icons, distributed around the talent without covering her face or coffee. Exact text:
+1. "Virtual KOL" then "khusus bisnismu" (preserve the existing upper-left callout).
+2. "Konten UGC rutin" (replace the existing left callout that currently says "Konten UGC + auto-reply").
+3. "Signature:" then "auto-reply AI Instagram" (replace the tiny chat conversation at lower-left with this larger readable feature sticker; do not repeat the old chat words).
+4. "Signature: gratis" then "bio-storefront thundr.id" (replace existing lower-right bio storefront label).
+The word Signature must appear visibly on BOTH bonus labels, because those features are excluded from Essential. All other text follows this brief exactly. Make feature lettering bold, high contrast, at least about 40px equivalent in a 1122px-wide image so it reads at 350px card width. Use enough width for thundr.id and Instagram without tiny font. Preserve the overall richness and smiling creator; avoid large opaque blocks across the product. No new metrics, offers, prices, claims or logos. Keep text safely within frame. Return a polished complete edited poster.

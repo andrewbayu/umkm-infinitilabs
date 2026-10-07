@@ -1,0 +1,192 @@
+{
+  "direction": "Usaha kecil, panggung besar",
+  "generation_mode": "built-in-imagegen",
+  "date": "2026-10-07",
+  "assets": [
+    {
+      "id": "home-hero",
+      "section": "hero",
+      "medium": "editorial-photo-and-CGI",
+      "placement": "Full portrait composition; hero copy outside image; product foreground lower right.",
+      "text_treatment": "html-outside-image",
+      "variant": "desktop-and-mobile",
+      "prompt_file": "prompts/home-hero.md",
+      "references": [],
+      "review_notes": "Standalone composition inspected; homepage integration inspected at 1440px desktop and 390px mobile. Native 4:5 composition retained. All five assets loaded; no horizontal page overflow.",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "source_file": "assets/generated/homepage-v2/home-hero.png",
+      "file": "public/images/home-hero-1200.webp",
+      "responsive_files": [
+        "public/images/home-hero-640.avif",
+        "public/images/home-hero-960.avif",
+        "public/images/home-hero-1200.avif",
+        "public/images/home-hero-640.webp",
+        "public/images/home-hero-1200.webp"
+      ],
+      "status": "generated-and-integrated-locally"
+    },
+    {
+      "id": "home-ugc-features",
+      "section": "UGC AI Social Package",
+      "medium": "photographic-campaign-poster-with-feature-overlays",
+      "placement": "Portrait creator collage with iced latte foreground, phone mockup and four yellow feature stickers.",
+      "text_treatment": "intrinsic-headline-and-feature-list",
+      "variant": "desktop-and-mobile",
+      "prompt_file": "prompts/home-ugc-features.md",
+      "references": [
+        {
+          "file": "assets/generated/ugc-ai-social.png",
+          "role": "edit-target-and-composition"
+        }
+      ],
+      "review_notes": "Generated artwork inspected for exact feature text and composition. Desktop homepage reviewed at 1440px; all three posters loaded on 390px mobile without cropping or horizontal overflow. UGC bonus callouts explicitly labeled Signature.",
+      "status": "generated-and-integrated-locally",
+      "intrinsic_text": [
+        "Virtual KOL khusus bisnismu",
+        "Konten UGC rutin",
+        "Signature: auto-reply AI Instagram",
+        "Signature: gratis bio-storefront thundr.id"
+      ],
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "source_file": "assets/generated/homepage-v2/home-ugc-features.png",
+      "file": "public/images/home-ugc-features-1200.webp",
+      "responsive_files": [
+        "public/images/home-ugc-features-640.avif",
+        "public/images/home-ugc-features-960.avif",
+        "public/images/home-ugc-features-1200.avif",
+        "public/images/home-ugc-features-640.webp",
+        "public/images/home-ugc-features-1200.webp"
+      ]
+    },
+    {
+      "id": "home-menu-features",
+      "section": "Promosi Menu & Paket",
+      "medium": "photographic-campaign-poster-with-feature-overlays",
+      "placement": "Portrait restaurant composition with headline and three feature callouts upper left, talent right and menu foreground.",
+      "text_treatment": "intrinsic-headline-and-feature-list",
+      "intrinsic_text": [
+        "Reels, desain & Story",
+        "Flyer WhatsApp",
+        "Penjadwalan & laporan"
+      ],
+      "variant": "desktop-and-mobile",
+      "prompt_file": "prompts/home-menu-features.md",
+      "references": [
+        {
+          "file": "assets/generated/campaign-food.png",
+          "role": "edit-target-and-composition"
+        }
+      ],
+      "review_notes": "Generated artwork inspected for exact feature text and composition. Desktop homepage reviewed at 1440px; all three posters loaded on 390px mobile without cropping or horizontal overflow. UGC bonus callouts explicitly labeled Signature.",
+      "status": "generated-and-integrated-locally",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "source_file": "assets/generated/homepage-v2/home-menu-features.png",
+      "file": "public/images/home-menu-features-1200.webp",
+      "responsive_files": [
+        "public/images/home-menu-features-640.avif",
+        "public/images/home-menu-features-960.avif",
+        "public/images/home-menu-features-1200.avif",
+        "public/images/home-menu-features-640.webp",
+        "public/images/home-menu-features-1200.webp"
+      ]
+    },
+    {
+      "id": "home-local-features",
+      "section": "Local Awareness Ads",
+      "medium": "photographic-campaign-poster-with-feature-overlays",
+      "placement": "Portrait hospitality host with room, breakfast and balcony photo collage; three yellow feature callouts lower right.",
+      "text_treatment": "intrinsic-headline-and-feature-list",
+      "variant": "desktop-and-mobile",
+      "prompt_file": "prompts/home-local-features.md",
+      "references": [
+        {
+          "file": "assets/generated/campaign-stay.png",
+          "role": "edit-target-and-composition"
+        }
+      ],
+      "review_notes": "Generated artwork inspected for exact feature text and composition. Desktop homepage reviewed at 1440px; all three posters loaded on 390px mobile without cropping or horizontal overflow. UGC bonus callouts explicitly labeled Signature.",
+      "status": "generated-and-integrated-locally",
+      "intrinsic_text": [
+        "Iklan Instagram & Facebook",
+        "Target area pilihan",
+        "Budget iklan termasuk"
+      ],
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "source_file": "assets/generated/homepage-v2/home-local-features.png",
+      "file": "public/images/home-local-features-1200.webp",
+      "responsive_files": [
+        "public/images/home-local-features-640.avif",
+        "public/images/home-local-features-960.avif",
+        "public/images/home-local-features-1200.avif",
+        "public/images/home-local-features-640.webp",
+        "public/images/home-local-features-1200.webp"
+      ]
+    },
+    {
+      "id": "home-ai",
+      "section": "AI assistance",
+      "medium": "CGI-with-photographic-inserts",
+      "placement": "Portrait illustration next to section copy; source prints connected to promotional artwork.",
+      "text_treatment": "html-outside-image",
+      "variant": "desktop-and-mobile",
+      "prompt_file": "prompts/home-ai.md",
+      "references": [
+        {
+          "file": "assets/generated/homepage-v2/home-hero.png",
+          "role": "style-palette-lighting"
+        }
+      ],
+      "review_notes": "Standalone composition inspected; homepage integration inspected at 1440px desktop and 390px mobile. Native 4:5 composition retained. All five assets loaded; no horizontal page overflow.",
+      "dimensions": {
+        "width": 1122,
+        "height": 1402
+      },
+      "source_file": "assets/generated/homepage-v2/home-ai.png",
+      "file": "public/images/home-ai-1200.webp",
+      "responsive_files": [
+        "public/images/home-ai-640.avif",
+        "public/images/home-ai-960.avif",
+        "public/images/home-ai-1200.avif",
+        "public/images/home-ai-640.webp",
+        "public/images/home-ai-1200.webp"
+      ],
+      "status": "generated-and-integrated-locally"
+    }
+  ],
+  "validation": {
+    "build": "Astro check and static build passed: 0 errors, 0 warnings, 0 hints.",
+    "desktop_viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "mobile_viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "preview_url": "http://127.0.0.1:4321/",
+    "publication": "local checkout only",
+    "screenshots": [
+      "previews/desktop-hero.jpg",
+      "previews/desktop-services.jpg",
+      "previews/desktop-ai.jpg",
+      "previews/mobile-hero.jpg",
+      "previews/mobile-services.jpg",
+      "previews/desktop-package-features.jpg",
+      "previews/mobile-ugc-features.jpg"
+    ],
+    "package_revision": "Astro check and build passed after feature poster revision; 0 errors, 0 warnings, 0 hints."
+  },
+  "revision": "Package cards restored to reference poster compositions with explicit feature lists."
+}

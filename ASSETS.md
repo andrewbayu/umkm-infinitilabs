@@ -17,3 +17,13 @@ Fraunces and Inter variable fonts are self-hosted through Fontsource packages. T
 ## Current content illustrations
 
 Three original campaign key visuals and three fictional creator selfie images were generated using the built-in OpenAI imagegen tool on October 7, 2026. Originals and prompt descriptions are in `assets/generated/`; optimized AVIF/WebP versions are in `public/images/`. Native HTML hooks, emoji, and benefit stickers are added by `ContentFrame.astro`. Each frame is labeled Ilustrasi AI. These are still images, not authentic customer recordings or campaign results.
+
+## Homepage visual direction v2
+
+Five primary homepage artworks were generated with built-in OpenAI imagegen on 7 October 2026 under the direction “Usaha kecil, panggung besar”. The new hero is the palette, material, and lighting reference for the four section artworks. Fictional talent, food, and properties are illustrative; the locality map is conceptual. They do not depict client work or verified business results.
+
+Original PNGs are in `assets/generated/homepage-v2/`. Direction, asset map, exact prompts, reference roles, and output dimensions are recorded in `art-direction/homepage-v2/`. The existing example-content gallery retains its separate illustrative examples. Main homepage assets are connected through `src/data/homepage-visuals.ts`.
+
+Reproduce the native-aspect responsive AVIF/WebP exports with `node scripts/prepare-home-visuals.mjs`. The script changes only the five `home-` assets and their manifest. Website headings, prices and CTAs remain HTML; package posters contain intrinsic service headlines and feature lists. Original earlier artworks are preserved.
+
+Following owner feedback, the three package featured images were revised from the original UGC, menu and hospitality poster references using built-in imagegen editing. Current package assets use `home-ugc-features`, `home-menu-features`, and `home-local-features`; each contains a service headline and a readable feature list. UGC auto-reply and the free thundr.id bio-storefront are explicitly marked Signature. The earlier v2 versions remain archived. Exact revision prompts and references are included in the direction folder and manifest.
